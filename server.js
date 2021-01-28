@@ -70,7 +70,7 @@ app.post("/logout", (req, res) => {
 
 app.get("/secret", requireLogin, (req, res) => {
   // res.render("secret");
-  res.sendFile(path.join(__dirname, "client", "index.html"));
+  res.sendFile(path.join(__dirname, "frontend", "index.html"));
 });
 
 app.listen(3000, () => {
