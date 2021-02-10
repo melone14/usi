@@ -7,6 +7,7 @@ const dotenv = require("dotenv");
 const session = require("express-session");
 const path = require("path");
 const { RSA_NO_PADDING } = require("constants");
+const PORT = proccess.env.PORT || 3000;
 
 dotenv.config();
 const URL = process.env.MONGO_URL;
@@ -95,8 +96,8 @@ app.get("/secret", requireLogin, (req, res) => {
   res.sendFile(path.join(__dirname, "index.html"));
 });
 
-app.listen(3000, () => {
-  console.log("Server is running on port 3000!");
+app.listen(PORT, () => {
+  console.log(`Server is running on port ${PORT}!`);
 });
 
 // <% campground.comments.forEach(function(comment){ %>
