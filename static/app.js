@@ -28,8 +28,8 @@ function startVideo() {
 // startVideo();
 
 Promise.all([
-  faceapi.nets.tinyFaceDetector.loadFromUri("/models"),
-  faceapi.nets.faceExpressionNet.loadFromUri("/models"),
+  faceapi.nets.tinyFaceDetector.loadFromUri("/modelss"),
+  faceapi.nets.faceExpressionNet.loadFromUri("/modelss"),
 ]).then(startVideo);
 
 video.addEventListener("play", detectFace);
@@ -61,3 +61,27 @@ async function detectFace() {
     }
   }, 100);
 }
+
+//------------------
+const DOMcomments = document.getElementById("comments");
+
+const fetchComments = async () => {
+  let response = await fetch(`http://localhost:3000/comments`);
+  let data = await response.json();
+  let commentsHTML = "";
+  data.forEach((comment) => {
+    DOMcomments.insertAdjacentHTML(
+      "afterbegin",
+      `<div class="comment"><h4>Komentarz: </h4> ${comment.comment}</div>`
+    );
+  });
+  // console.log(data);
+};
+
+fetchComments();
+// const comments = fetchComments();
+// console.log(comments);
+
+// // [...comments].forEach((comment) => {
+// //   commentsHTML += `<><p>${comment.comment}</p></>`;
+// // });

@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css"
+    />
+    <title>Document</title>
+    <style>
+      * {
+        /* overflow-x: hidden; */
+      }
+
+      body {
+        font-family: Barlow, sans-serif;
+        font-weight: 900;
+        padding-top: 50px !important;
+        background: #222;
+        overflow-x: hidden;
+      }
+
+      video {
+        border-radius: 5px;
+      }
+
+      .emotion {
+        top: -150px;
+        text-shadow: 3px 3px 0 #000;
+      }
+
+      .comments-container {
+        width: 50vw;
+        margin: 0 auto;
+      }
+
+      form {
+        width: 100%;
+      }
+
+      #comment {
+        width: 80%;
+        height: 40px;
+        outline: none;
+        border-radius: 5px;
+        padding: 10px;
+        margin-bottom: 10px;
+      }
+
+      .comment {
+        background: whitesmoke;
+        border: 1px solid gray;
+        border-radius: 5px;
+        margin: 2px;
+      }
+
+      .comment h4 {
+        display: inline-block;
+      }
+
+      #submit {
+        background: green;
+        width: 19%;
+        height: 40px;
+        border-radius: 10px;
+      }
+    </style>
+  </head>
+  <body class="m-0 p-0 w-screen h-screen">
+    <div class="flex justify-center items-center relative">
+      <canvas class="js-overlay absolute t-0"></canvas>
+      <video class="js-video" width="620" height="460" autoplay muted></video>
+    </div>
+
+    <div
+      class="emotion js-emotion text-center text-white mt-5 text-2xl uppercase relative text-6xl"
+    >
+      Poczekaj chwilę...
+    </div>
+    <div class="comments-container">
+      <form action="/comment" method="POST">
+        <input
+          type="text"
+          name="comment"
+          id="comment"
+          for="comment"
+          placeholder="Dodaj komentarz"
+          required
+        />
+        <button type="submit" id="submit">Dodaj</button>
+      </form>
+      <div id="comments"></div>
+    </div>
+    <script src="/static/face-api.min.js"></script>
+    <script src="/static/app.js"></script>
+  </body>
+</html>
