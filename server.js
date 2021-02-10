@@ -7,7 +7,7 @@ const dotenv = require("dotenv");
 const session = require("express-session");
 const path = require("path");
 const { RSA_NO_PADDING } = require("constants");
-const PORT = proccess.env.PORT || 3000;
+const PORT = process.env.PORT || 3000;
 
 dotenv.config();
 const URL = process.env.MONGO_URL;
